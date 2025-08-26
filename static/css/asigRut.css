@@ -1,0 +1,65 @@
+/* Card principal */
+.card-form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 900px; /* Centrar y limitar ancho */
+}
+
+/* Encabezados */
+.card-form h2, .card-form p {
+    color: #333;
+}
+
+.card-form p {
+    font-size: 0.95rem;
+}
+
+/* Inputs y selects con borde suave y efecto focus */
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0078D7; /* Azul estilo Microsoft */
+    box-shadow: 0 0 5px rgba(0, 120, 215, 0.4);
+}
+
+/* Botones con bordes redondeados y efectos hover */
+.btn-success, .btn-primary, .btn-secondary {
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.btn-success:hover {
+    background-color: #005a9e;
+    box-shadow: 0 3px 10px rgba(0, 90, 158, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 3px 10px rgba(0, 86, 179, 0.3);
+}
+
+.btn-secondary:hover {
+    background-color: #6c757d;
+    box-shadow: 0 3px 10px rgba(108, 117, 125, 0.3);
+}
+
+/* Iconos en botones */
+.btn i {
+    margin-right: 3px;
+}
+
+/* Espaciado interno y separación entre filas */
+.row.g-3 {
+    gap: 15px;
+}
+
+.mt-4 {
+    margin-top: 10px !important;
+}

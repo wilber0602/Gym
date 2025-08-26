@@ -1,0 +1,61 @@
+/* Card principal */
+.card-form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Secciones dentro del form */
+.form-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+/* Encabezados */
+.card-form h3, .form-section h5 {
+    color: #333;
+}
+
+/* Inputs y selects con borde suave y efecto focus */
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0078D7; /* Azul estilo Microsoft */
+    box-shadow: 0 0 5px rgba(0, 120, 215, 0.4);
+}
+
+.btn-success:hover {
+    background-color: #005a9e;
+    box-shadow: 0 4px 12px rgba(0, 90, 158, 0.3);
+}
+
+.btn-secondary {
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #6c757d;
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+/* Ajuste para iconos en botones */
+.btn i {
+    margin-right: 5px;
+}
+
+/* Inputs de archivo personalizados */
+input[type="file"] {
+    padding: 6px 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+

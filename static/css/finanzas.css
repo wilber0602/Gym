@@ -1,0 +1,28 @@
+.card-finanzas {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .form-control, .form-select {
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: #0078D7;
+      box-shadow: 0 0 5px rgba(0,120,215,0.4);
+    }
+
+     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; }
+    .card-dashboard { border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px; }
+    .card-dashboard h5 { font-weight: 600; color: #555; }
+    .card-dashboard span { font-size: 1.5rem; font-weight: bold; }
+    .entrada { color: #198754; } .salida { color: #dc3545; }
+    .btn-primary, .btn-success { border-radius: 10px; transition: all 0.2s; }
+    .btn-primary:hover { box-shadow: 0 4px 12px rgba(0,123,255,0.3); }
+    .btn-success:hover { box-shadow: 0 4px 12px rgba(25,135,84,0.3); }
+    .table th, .table td { vertical-align: middle; }

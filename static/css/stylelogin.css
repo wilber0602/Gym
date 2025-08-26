@@ -1,0 +1,40 @@
+ body {
+      background-color: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .login-card {
+      max-width: 400px;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      background-color: white;
+    }
+    .brand-logo {
+      display: block;
+      margin: 0 auto 1rem auto;
+      width: 80px;
+    }
+    .btn-primary {
+      background-color: #603813; /* Marrón oscuro */
+      border: none;
+    }
+     .btn-primary:hover {
+      background-color: #804b1c;
+    }
+    .forgot-password {
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+    .forgot-password a {
+      color: #603813;
+      text-decoration: none;
+    }
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }

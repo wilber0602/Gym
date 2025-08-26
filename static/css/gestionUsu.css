@@ -1,0 +1,87 @@
+/* === ESTILO MODERNO PARA TABLAS DEL PANEL === */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Encabezados */
+.table th {
+  background: linear-gradient(135deg, #1f2b30); /* azul degradado */
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+  padding: 11px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Celdas */
+.table td {
+  padding: 12px;
+  font-size: 13px;
+  color: #374151;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+  word-wrap: break-word;
+  white-space: normal;
+  vertical-align: middle;
+}
+
+/* Filas alternadas */
+.table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* Hover fila */
+.table tbody tr:hover {
+  background: #f1f5f9;
+  transition: background 0.3s ease;
+}
+
+/* Botones dentro de tablas */
+.table .btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos botones por color */
+.table .btn-edit {
+  background: #3b82f6;
+  color: #fff;
+}
+.table .btn-edit:hover {
+  background: #1e40af;
+}
+
+.table .btn-delete {
+  background: #ef4444;
+  color: #fff;
+}
+.table .btn-delete:hover {
+  background: #991b1b;
+}
+
+.table .btn-view {
+  background: #10b981;
+  color: #fff;
+}
+.table .btn-view:hover {
+  background: #065f46;
+}
+
+/* Responsividad */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}

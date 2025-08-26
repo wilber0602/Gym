@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finanzas</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="{% static 'css/styleadmin.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/finanzas.css' %}" />
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    .container-fluid, .row {
+      height: 100%;
+    }
+
+    /* Main content */
+    main.main-content {
+      height: 100%;
+      overflow-y: auto; /* Scroll solo del main */
+      padding: 2rem;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Sidebar -->
+      <nav id="sidebar" class="col-12 col-md-3 col-lg-2 sidebar py-3 d-none d-md-block">
+        <h4 class="px-2 d-flex align-items-center">
+          <img src="{% static 'css/img/Hera Fitnes.jpg' %}" alt="Logo" width="30" class="me-2 rounded" />
+          Hera<span style="color:#d96617">Fitness</span>
+        </h4>
+        <a href="{% url 'paneladmin' %}"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a href="{% url 'gestion_usuarios' %}" class="active"><i class="bi bi-people"></i> Gestionar Usuarios</a>
+        <a href="{% url 'registrar_asistencia' %}"><i class="bi bi-calendar-check"></i> Membresía</a>
+        <a href="{% url 'gestion_calorica' %}"><i class="bi-heart-pulse"></i> Gestion Calorica</a>
+        <a href="{% url 'reportes' %}"><i class="bi bi-bar-chart"></i> Ver Reportes</a>
+        <a href="{% url 'crear_rutinas' %}"><i class="bi bi-plus-circle me-2"></i> Crear Rutinas</a>
+        <a href="{% url 'asignar_rutinas' %}"><i class="bi bi-check2-square"></i> Asignar Rutinas</a>
+        <a href="{% url 'ver_progreso' %}"><i class="bi bi-graph-up"></i> Ver Progreso</a>
+        <a href="{% url 'finanzas' %}"><i  class="bi bi-cash-stack"></i> Finanzas</a>
+        <a href="{% url 'logout' %}"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-12 col-md-9 col-lg-10 main-content py-4">
+        
+        <!-- Encabezado -->
+        <div class="mb-4 d-flex align-items-center gap-3">
+          <button id="toggleSidebar" class="btn btn-success d-block d-md-none rounded p-2 fs-4" aria-label="Toggle sidebar">
+            ☰
+          </button>
+          <h2 class="fw-bold mb-0">Gestión de Usuarios</h2>
+        </div>
+        <p class="text-muted">Administra los usuarios registrados en el sistema.</p>
+
+        <!-- Botón para abrir modal -->
+        <div class="mb-3 text-end">
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregarUsuario">
+            <i class="bi bi-plus-circle"></i> Agregar Usuario
+          </button>
+        </div>
+
+        <!-- Tabla Usuarios -->
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+              <thead class="table-dark text-center">
+                <tr>
+                  <th>Nombre</th>
+                  <th>Correo</th>
+                  <th>Estado</th>
+                  <th>Plan</th>
+                  <th>Rol</th>
+                  <th>Contra</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr>
+                  <td>Juan Pérez</td>
+                  <td>juan@example.com</td>
+                  <td><span class="badge bg-success">Activo</span></td>
+                  <td><span class="badge bg-info">Mensual</span></td>
+                  <td>Usuario Común</td>
+                  <td>********</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal Crear Usuario -->
+  <div class="modal fade" id="modalAgregarUsuario" tabindex="-1" aria-labelledby="modalAgregarUsuarioLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content rounded-4 shadow-lg">
+        <div class="modal-header bg-primary text-white rounded-top-4">
+          <h5 class="modal-title fw-bold" id="modalAgregarUsuarioLabel"><i class="bi bi-person-plus"></i> Crear Nuevo Usuario</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body p-4">
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-bold">Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre completo">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold">Correo</label>
+                <input type="email" class="form-control" placeholder="usuario@ejemplo.com">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold">Contraseña</label>
+                <input type="password" class="form-control" placeholder="Contraseña">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold">Estado</label>
+                <select class="form-select">
+                  <option>Activo</option>
+                  <option>Inactivo</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold">Plan</label>
+                <select class="form-select">
+                  <option>Semanal</option>
+                  <option>Mensual</option>
+                  <option>Personalizado</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold">Rol</label>
+                <select class="form-select">
+                  <option>Coach</option>
+                  <option>Usuario Común</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold">Próximo Pago</label>
+                <input type="date" class="form-control">
+              </div>
+            </div>
+            <div class="text-end mt-4">
+              <button type="submit" class="btn btn-success">
+                <i class="bi bi-check-circle"></i> Guardar Usuario
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{% static 'js/menu.js'%}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

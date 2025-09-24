@@ -2,11 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('panelUsuario/', views.panel_Usuario, name='panelUsuario'), #Vista Usuario
-    
-    path('panelcoach/', views.panel_coach, name='panelcoach'), # Vista Coach 
-    
-    path('paneladmin/', views.panel_admin, name='paneladmin'), # Vista Admin Todo Para Abajo Es Admin
+    path('panelUsuario/', views.panel_usuario, name='panelUsuario'),
+    path('panelcoach/', views.panel_coach, name='panelcoach'),
+    path('paneladmin/', views.panel_admin, name='paneladmin'),
     path('usuarios/', views.gestion_usuarios, name='gestion_usuarios'),
     path('gestion-calorica/', views.gestion_Calorica, name='gestion_calorica'),
     path('reportes/', views.reportes, name='reportes'),

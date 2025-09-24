@@ -51,8 +51,11 @@
           <img src="{% static 'css/img/Hera Fitnes.jpg' %}" alt="Logo" width="30" class="me-2 rounded" />
           Hera<span style="color:#d96617">Fitness</span>
         </h4>
-        <a href="{% url '' %}" class="active"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <!-- Dashboard -->
+        <a href="{% url 'panelUsuario' %}" class="active"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <!-- Ver Progreso -->
         <a href="{% url 'ver_progreso' %}"><i class="bi bi-graph-up"></i> Ver Progreso</a>
+        <!-- Cerrar sesión -->
         <a href="{% url 'logout' %}"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a>
       </nav>
 
@@ -70,9 +73,7 @@
           </div>
         </div>
 
-
-
-        </main>
+      </main>
     </div>
   </div>
   

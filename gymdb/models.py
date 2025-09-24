@@ -1,22 +1,34 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser, Group, Permission
+
 
 class Rol(models.Model):
-    id_rol = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nombre
 
-class Usuario(models.Model):
-    id_usuario = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100)
-    email = models.EmailField(max_length=100, unique=True)
-    contrasena = models.CharField(max_length=255)
-    id_rol = models.ForeignKey(Rol, on_delete=models.RESTRICT)
+class Usuario(AbstractUser):
+    id_rol = models.ForeignKey(Rol, null=True, blank=True, on_delete=models.SET_NULL)
     id_coach = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL)
 
+    # Evitar conflictos con auth.User
+    groups = models.ManyToManyField(
+        Group,
+        related_name="usuario_groups",
+        blank=True,
+        verbose_name="groups",
+    )
+    user_permissions = models.ManyToManyField(
+        Permission,
+        related_name="usuario_user_permissions",
+        blank=True,
+        verbose_name="user permissions",
+    )
+
     def __str__(self):
-        return self.nombre
+        return self.username
+
 
 class Plan(models.Model):
     id_plan = models.AutoField(primary_key=True)
@@ -26,6 +38,7 @@ class Plan(models.Model):
 
     def __str__(self):
         return self.nombre
+
 
 class Membresia(models.Model):
     id_membresia = models.AutoField(primary_key=True)
@@ -53,11 +66,14 @@ class Pago(models.Model):
     def __str__(self):
         return f"Pago {self.id_pago} - {self.monto}"
 
+
 class Ejercicio(models.Model):
     id_ejercicio = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(blank=True, null=True)
-    calorias_por_unidad = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    calorias_por_unidad = models.DecimalField(
+        max_digits=10, decimal_places=2, blank=True, null=True
+    )
     grupo_muscular = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
@@ -97,7 +113,9 @@ class Rutina_Dia_Ejercicio(models.Model):
     id_rutina_dia_ejercicio = models.AutoField(primary_key=True)
     id_rutina = models.ForeignKey(Rutina, on_delete=models.CASCADE)
     dia = models.CharField(max_length=9, choices=DIAS_CHOICES)
-    id_ejercicio = models.ForeignKey(Ejercicio, on_delete=models.SET_NULL, null=True, blank=True)
+    id_ejercicio = models.ForeignKey(
+        Ejercicio, on_delete=models.SET_NULL, null=True, blank=True
+    )
     nombre_ejercicio = models.CharField(max_length=100, blank=True, null=True)
     series = models.IntegerField(blank=True, null=True)
     repeticiones = models.IntegerField(blank=True, null=True)
@@ -121,4 +139,3 @@ class Registro_Entrenamiento(models.Model):
 
     def __str__(self):
         return f"Registro {self.id_registro} - {self.id_usuario.nombre} - {self.fecha}"
-
